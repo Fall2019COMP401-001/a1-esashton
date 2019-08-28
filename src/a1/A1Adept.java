@@ -60,8 +60,8 @@ public class A1Adept {
 		
 		
 		
-		System.out.println("Biggest: " + FirstNames[biggest(totals)] + " " + LastNames[biggest(totals)] + " " + String.format("%.2f", totals[biggest(totals)]));
-		System.out.println("Smallest: " + FirstNames[smallest(totals)] + " " + LastNames[smallest(totals)] + " " + String.format("%.2f", totals[smallest(totals)]));
+		System.out.println("Biggest: " + FirstNames[biggest(totals)] + " " + LastNames[biggest(totals)] + " (" + String.format("%.2f", totals[biggest(totals)]) + ")");
+		System.out.println("Smallest: " + FirstNames[smallest(totals)] + " " + LastNames[smallest(totals)] + " (" + String.format("%.2f", totals[smallest(totals)]) + ")");
 		System.out.println("Average: " + String.format("%.2f", average));
 		
 	}
@@ -77,20 +77,20 @@ public class A1Adept {
 	
 	public static int biggest(double[] t) {
 		int biggest = 0;
-		for (int i = 0; i < t.length - 1; i++) {
-			if (t[i] < t[i + 1]) {
-				biggest = i + 1;
-			}
+		for (int i = 1; i < t.length; i++) {
+			if (t[i] > t[biggest]) {
+				biggest = i;
+			} 
 		}
 		return biggest;
 	}
 	
 	public static int smallest(double[] t) {
 		int smallest = 0;
-		for (int i = 0; i < t.length - 1; i++) {
-			if (t[i] > t[i + 1]) {
-				smallest = i + 1;
-			}
+		for (int i = 1; i < t.length; i++) {
+			if (t[i] < t[smallest]) {
+				smallest = i;
+			} 
 		}
 		return smallest;
 	}
