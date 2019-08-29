@@ -25,7 +25,7 @@ public class A1Jedi {
 		String[] FirstNames = new String[numOfCustomers];
 		String[] LastNames = new String[numOfCustomers];
 		int[] numBought = new int[items.length];
-		int[] numOfItemBoughtByCustomers = new int[items.length];
+		int[] numOfCustomersWhoBoughtItem = new int[items.length];
 		
 		for (int j = 0; j < numOfCustomers; j++) {
 			FirstNames[j] = scan.next();
@@ -38,16 +38,16 @@ public class A1Jedi {
 				quantity[k] = scan.nextInt();
 				customerItems[k] = scan.next();
 			}
+			
+			int[] dupes = new int[items.length];
 						
 			for (int l = 0; l < items.length; l++) {
 				for (int m = 0; m < totalItems; m++) {
 					if (customerItems[m].equals(items[l])) {
+						dupes[l] += 1;
 						numBought[l] += quantity[m];
-						numOfItemBoughtByCustomers[l] += 1;
-						for (int n = m - 1; n >= 0; n--) {
-							if (customerItems[m].equals(customerItems[n])) {
-								numOfItemBoughtByCustomers[l] -= 1;
-							}
+						if (dupes[l] == 1) {
+							numOfCustomersWhoBoughtItem[l] += 1;
 						}
 					}
 				}
@@ -57,7 +57,7 @@ public class A1Jedi {
 		
 		for (int n = 0; n < items.length; n++) {
 			if (numBought[n] != 0) {
-				System.out.println(numOfItemBoughtByCustomers[n] + " customers bought " + numBought[n] + " " + items[n]);
+				System.out.println(numOfCustomersWhoBoughtItem[n] + " customers bought " + numBought[n] + " " + items[n]);
 			} else {
 				System.out.println("No customers bought " + items[n]);
 			}
