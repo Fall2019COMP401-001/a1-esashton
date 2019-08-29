@@ -44,6 +44,11 @@ public class A1Jedi {
 					if (customerItems[m].equals(items[l])) {
 						numBought[l] += quantity[m];
 						numOfItemBoughtByCustomers[l] += 1;
+						for (int n = m - 1; n >= 0; n--) {
+							if (customerItems[m].equals(customerItems[n])) {
+								numOfItemBoughtByCustomers[l] -= 1;
+							}
+						}
 					}
 				}
 			}
