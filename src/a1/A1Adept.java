@@ -24,7 +24,6 @@ public class A1Adept {
 		
 		String[] FirstNames = new String[numOfCustomers];
 		String[] LastNames = new String[numOfCustomers];
-		// int[] totalItems = new int[numOfCustomers];
 		double[] totals = new double[numOfCustomers];
 		
 		for (int j = 0; j < numOfCustomers; j++) {
@@ -52,13 +51,7 @@ public class A1Adept {
 		
 		scan.close();
 		
-		// System.out.println(totals[1]);
-		
-		// double biggest = totals[0];
-		// double smallest = totals[0];
 		double average = avg(totals);
-		
-		
 		
 		System.out.println("Biggest: " + FirstNames[biggest(totals)] + " " + LastNames[biggest(totals)] + " (" + String.format("%.2f", totals[biggest(totals)]) + ")");
 		System.out.println("Smallest: " + FirstNames[smallest(totals)] + " " + LastNames[smallest(totals)] + " (" + String.format("%.2f", totals[smallest(totals)]) + ")");
